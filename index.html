@@ -1,1 +1,496 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여정 · 8일간의 한국 — Itinerary Korea 8 Hari 7 Malam</title>
+<style>
+  :root{
+    --paper: #F2EDE4;
+    --ink: #1F2620;
+    --celadon: #5C7A6E;
+    --celadon-deep: #3B5248;
+    --dancheong-red: #B23A2F;
+    --ochre: #C08A34;
+    --line: rgba(31,38,32,0.16);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    line-height:1.6;
+  }
+
+  @font-face{
+    font-family:'DisplaySerif';
+    src:local('Noto Serif KR'), local('Georgia');
+  }
+
+  h1,h2,h3, .display{
+    font-family: 'Noto Serif KR', Georgia, 'Times New Roman', serif;
+    letter-spacing: 0.01em;
+  }
+
+  a{color:inherit;}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height: 92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding: 6vh 6vw;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero-eyebrow{
+    font-size:0.8rem;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--celadon-deep);
+    margin-bottom:1.5rem;
+  }
+
+  .hero h1{
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    color:var(--ink);
+    line-height:1.05;
+    margin-bottom:1rem;
+  }
+
+  .hero h1 span{
+    color:var(--dancheong-red);
+    font-style:italic;
+  }
+
+  .hero-sub{
+    max-width:38ch;
+    font-size:1.05rem;
+    color:#4a544c;
+    margin-top:1rem;
+  }
+
+  .hero-route{
+    margin-top:3.5rem;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    color:var(--celadon-deep);
+    font-weight:600;
+  }
+
+  .hero-route .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--dancheong-red);
+  }
+  .hero-route .seg{
+    width:40px; height:1px; background:var(--line);
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:5vh;
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:#8a8f89;
+    animation: bob 2.2s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  /* ===== JOURNEY LINE ===== */
+  .journey{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 4vh 6vw 12vh;
+    position:relative;
+  }
+
+  .journey::before{
+    content:"";
+    position:absolute;
+    left: 6vw;
+    top: 0;
+    bottom: 0;
+    width:1px;
+    background: linear-gradient(to bottom, transparent, var(--line) 5%, var(--line) 95%, transparent);
+  }
+
+  @media (min-width: 700px){
+    .journey::before{ left: 84px; }
+  }
+
+  .day{
+    position:relative;
+    padding: 3.2rem 0 3.2rem 3.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .day:last-child{border-bottom:none;}
+
+  @media (min-width: 700px){
+    .day{ padding-left: 168px; }
+  }
+
+  .day-num{
+    position:absolute;
+    left:0;
+    top:3.2rem;
+    width:2.4rem;
+    text-align:right;
+    font-family:'Noto Serif KR', serif;
+    font-size:1.4rem;
+    color: var(--dancheong-red);
+  }
+
+  @media (min-width: 700px){
+    .day-num{
+      left: 24px;
+      width: 60px;
+      top: 3.2rem;
+    }
+  }
+
+  .day-marker{
+    position:absolute;
+    left: 2.15rem;
+    top: 3.55rem;
+    width:11px; height:11px;
+    border-radius:50%;
+    background: var(--paper);
+    border: 2px solid var(--celadon);
+  }
+  @media (min-width: 700px){
+    .day-marker{ left: 79px; }
+  }
+
+  .day-loc{
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--celadon-deep);
+    font-weight:700;
+    margin-bottom:0.4rem;
+  }
+
+  .day h2{
+    font-size:1.7rem;
+    margin-bottom:1rem;
+    color:var(--ink);
+  }
+
+  .day ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:0.65rem;
+  }
+
+  .day li{
+    padding-left:1.3rem;
+    position:relative;
+    color:#33392f;
+    font-size:0.98rem;
+  }
+
+  .day li::before{
+    content:"·";
+    position:absolute;
+    left:0;
+    color:var(--ochre);
+    font-weight:900;
+    font-size:1.3rem;
+    line-height:0.8;
+  }
+
+  .day li strong{
+    color:var(--ink);
+    font-weight:700;
+  }
+
+  /* ===== SUMMARY TABLE ===== */
+  .summary{
+    max-width:920px;
+    margin: 0 auto;
+    padding: 8vh 6vw 2vh;
+  }
+
+  .summary h2{
+    font-size:0.78rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--celadon-deep);
+    margin-bottom:2rem;
+  }
+
+  .summary-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .summary-cell{
+    background: var(--paper);
+    padding: 1.4rem 1.2rem;
+  }
+
+  .summary-cell .n{
+    font-family:'Noto Serif KR', serif;
+    font-size:1.6rem;
+    color:var(--dancheong-red);
+    display:block;
+    margin-bottom:0.3rem;
+  }
+  .summary-cell .loc{
+    font-weight:700;
+    font-size:0.95rem;
+  }
+  .summary-cell .focus{
+    font-size:0.82rem;
+    color:#6b7268;
+    margin-top:0.2rem;
+  }
+
+  /* ===== TIPS ===== */
+  .tips{
+    max-width:920px;
+    margin:0 auto;
+    padding: 8vh 6vw 10vh;
+  }
+
+  .tips h2{
+    font-size:0.78rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--celadon-deep);
+    margin-bottom:2rem;
+  }
+
+  .tips-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:2rem;
+  }
+
+  .tip-card h3{
+    font-size:1.05rem;
+    margin-bottom:0.5rem;
+    color:var(--ink);
+  }
+  .tip-card p{
+    font-size:0.9rem;
+    color:#565d54;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    text-align:center;
+    padding: 6vh 6vw 8vh;
+    color:#8a8f89;
+    font-size:0.8rem;
+    letter-spacing:0.05em;
+  }
+
+  footer .stamp{
+    display:inline-block;
+    margin-bottom:1rem;
+    width:44px; height:44px;
+    border:1.5px solid var(--dancheong-red);
+    color:var(--dancheong-red);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Noto Serif KR', serif;
+    font-size:1.1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-eyebrow">Seoul · Nami · Busan</div>
+  <h1>8 Hari<br><span>Menyusuri</span> Korea</h1>
+  <p class="hero-sub">Dari istana Joseon di Seoul, pulau ginkgo di Gapyeong, sampai desa warna-warni di Busan — satu itinerary, tujuh malam.</p>
+  <div class="hero-route">
+    <span>SEOUL</span><span class="seg"></span><span class="dot"></span><span class="seg"></span>
+    <span>NAMI</span><span class="seg"></span><span class="dot"></span><span class="seg"></span>
+    <span>BUSAN</span>
+  </div>
+  <div class="scroll-cue">Gulir ↓</div>
+</section>
+
+<section class="summary">
+  <h2>Ringkasan Perjalanan</h2>
+  <div class="summary-grid">
+    <div class="summary-cell"><span class="n">01</span><span class="loc">Seoul</span><div class="focus">Kedatangan · Myeongdong</div></div>
+    <div class="summary-cell"><span class="n">02</span><span class="loc">Seoul</span><div class="focus">Gyeongbokgung · Bukchon</div></div>
+    <div class="summary-cell"><span class="n">03</span><span class="loc">Seoul</span><div class="focus">Hongdae · N Seoul Tower</div></div>
+    <div class="summary-cell"><span class="n">04</span><span class="loc">Nami / Gapyeong</span><div class="focus">Day trip alam</div></div>
+    <div class="summary-cell"><span class="n">05</span><span class="loc">Seoul → Busan</span><div class="focus">Haeundae · Gwangalli</div></div>
+    <div class="summary-cell"><span class="n">06</span><span class="loc">Busan</span><div class="focus">Gamcheon · Jagalchi</div></div>
+    <div class="summary-cell"><span class="n">07</span><span class="loc">Busan → Seoul</span><div class="focus">Gangnam · COEX</div></div>
+    <div class="summary-cell"><span class="n">08</span><span class="loc">Seoul</span><div class="focus">Belanja · Kepulangan</div></div>
+  </div>
+</section>
+
+<div class="journey">
+
+  <div class="day">
+    <div class="day-num">01</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Seoul</div>
+    <h2>Kedatangan &amp; Myeongdong</h2>
+    <ul>
+      <li>Tiba di <strong>Incheon International Airport (ICN)</strong>, naik AREX menuju Seoul.</li>
+      <li>Check-in hotel — area <strong>Myeongdong</strong> atau <strong>Hongdae</strong> untuk akses mudah.</li>
+      <li>Sore/malam jalan-jalan di <strong>Myeongdong</strong>: skincare, tteokbokki, hotteok, hotdog Korea.</li>
+      <li>Makan malam di <strong>Myeongdong Kyoja</strong> — kalguksu &amp; mandu.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">02</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Seoul</div>
+    <h2>Istana &amp; Hanok</h2>
+    <ul>
+      <li>Pagi di <strong>Gyeongbokgung Palace</strong> — sewa hanbok untuk masuk gratis, tonton pergantian penjaga.</li>
+      <li><strong>Bukchon Hanok Village</strong> — susuri gang rumah tradisional Korea.</li>
+      <li><strong>Insadong</strong> — oleh-oleh, teh tradisional, galeri seni.</li>
+      <li>Malam di <strong>Gwangjang Market</strong>: bindaetteok, mayak gimbap, sundae.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">03</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Seoul</div>
+    <h2>Hongdae &amp; N Seoul Tower</h2>
+    <ul>
+      <li>Siang di <strong>Hongdae</strong> — street performance, kafe unik, belanja fashion.</li>
+      <li>Sore naik cable car ke <strong>N Seoul Tower</strong> — gembok cinta, sunset city view.</li>
+      <li>Malam di <strong>Itaewon</strong> atau kembali ke Hongdae untuk nightlife.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">04</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Nami · Gapyeong</div>
+    <h2>Day Trip Alam</h2>
+    <ul>
+      <li><strong>Nami Island</strong> — pulau ikon drama "Winter Sonata", jalur pohon ginkgo/metasequoia.</li>
+      <li><strong>Petite France</strong> atau <strong>Garden of Morning Calm</strong> (tergantung musim).</li>
+      <li><strong>Gangchon Rail Bike</strong> — opsional, pengalaman unik menyusuri rel.</li>
+      <li>Kembali ke Seoul malam hari.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">05</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Seoul → Busan</div>
+    <h2>Naik KTX ke Selatan</h2>
+    <ul>
+      <li>Pagi naik <strong>KTX</strong> dari Seoul Station ke Busan (± 2.5 jam).</li>
+      <li>Check-in hotel di area <strong>Haeundae</strong>.</li>
+      <li>Sore santai di <strong>Haeundae Beach</strong>.</li>
+      <li>Malam di <strong>Gwangalli Beach</strong> — Gwangan Bridge menyala, kafe pinggir pantai.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">06</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Busan</div>
+    <h2>Warna &amp; Rasa Busan</h2>
+    <ul>
+      <li>Pagi di <strong>Gamcheon Culture Village</strong> — desa warna-warni, spot foto ikonik.</li>
+      <li>Siang di <strong>Jagalchi Fish Market</strong> — seafood segar langsung dari nelayan.</li>
+      <li>Sore di <strong>Busan Tower / Yongdusan Park</strong>.</li>
+      <li>Malam di <strong>BIFF Square &amp; Nampo-dong</strong> — jajanan kaki lima, belanja.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">07</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Busan → Seoul</div>
+    <h2>Kembali ke Gangnam</h2>
+    <ul>
+      <li>Pagi naik KTX kembali ke Seoul.</li>
+      <li>Siang di <strong>Gangnam</strong> — foto di patung Gangnam Style.</li>
+      <li><strong>COEX Mall &amp; Starfield Library</strong> — spot foto perpustakaan raksasa.</li>
+      <li>Malam mampir <strong>Bongeunsa Temple</strong>, lalu makan BBQ Korea di Gangnam.</li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-num">08</div>
+    <div class="day-marker"></div>
+    <div class="day-loc">Seoul</div>
+    <h2>Belanja Terakhir &amp; Pulang</h2>
+    <ul>
+      <li>Pagi belanja terakhir di <strong>DDP</strong> atau Myeongdong untuk oleh-oleh.</li>
+      <li>Menuju <strong>Incheon Airport</strong> via AREX — siapkan 1-2 jam sebelum check-in.</li>
+      <li>Terbang pulang. ✈️</li>
+    </ul>
+  </div>
+
+</div>
+
+<section class="tips">
+  <h2>Tips Praktis</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>Transportasi</h3>
+      <p>Beli <strong>T-money card</strong> untuk naik subway/bus dengan mudah di seluruh kota.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Koneksi</h3>
+      <p>Sewa pocket WiFi atau pasang eSIM sebelum berangkat supaya tetap terhubung.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Tiket KTX</h3>
+      <p>Booking lebih awal via aplikasi <strong>Korail</strong> atau <strong>Klook</strong> untuk harga lebih murah.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Musim Terbaik</h3>
+      <p>Musim semi (Mar–Mei) &amp; musim gugur (Sep–Nov) paling nyaman untuk jalan kaki.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Bahasa</h3>
+      <p>Unduh aplikasi <strong>Papago</strong> atau Google Translate untuk terjemahan real-time.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Budget Makan</h3>
+      <p>Street food ± 5.000–10.000 won, restoran biasa ± 10.000–20.000 won per orang.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="stamp">韓</div>
+  <div>Itinerary Korea Selatan — 8 Hari 7 Malam</div>
+</footer>
+
+</body>
+</html>
