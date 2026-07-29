@@ -22,6 +22,19 @@
     color:var(--ink);
     font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
     line-height:1.6;
+    position:relative;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(40,55) rotate(15) scale(0.9)' fill='rgb(178,58,47)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(165,35) rotate(-40) scale(0.7)' fill='rgb(192,138,52)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(255,120) rotate(65) scale(1.1)' fill='rgb(196,110,58)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(60,190) rotate(-10) scale(0.8)' fill='rgb(120,80,45)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(210,230) rotate(100) scale(0.6)' fill='rgb(178,58,47)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(25,260) rotate(45) scale(0.9)' fill='rgb(192,138,52)'/><path d='M0 -28c16 14 16 40 0 56c-16-16-16-42 0-56z' transform='translate(285,260) rotate(-60) scale(0.75)' fill='rgb(196,110,58)'/></svg>");
+    background-repeat: repeat;
+    background-size: 320px 320px;
+    opacity: 0.15;
+    z-index:-1;
+    pointer-events:none;
   }
 
   @font-face{
@@ -107,6 +120,23 @@
   @keyframes bob{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
+  }
+
+  .hero-leaf{
+    position:absolute;
+    width:70px;
+    opacity:0.22;
+  }
+  .hero-leaf-1{
+    top:8%;
+    left:6%;
+    transform:rotate(-25deg);
+  }
+  .hero-leaf-2{
+    bottom:10%;
+    right:7%;
+    width:90px;
+    transform:rotate(160deg);
   }
 
   /* ===== JOURNEY LINE ===== */
@@ -218,6 +248,22 @@
     font-weight:700;
   }
 
+  .day li .note{
+    display:block;
+    margin-top:0.3rem;
+    font-size:0.82rem;
+    color:#7d8479;
+    font-weight:400;
+    line-height:1.5;
+  }
+
+  .day-icon{
+    width:42px;
+    height:42px;
+    margin-bottom:0.9rem;
+    display:block;
+  }
+
   /* ===== SUMMARY TABLE ===== */
   .summary{
     max-width:920px;
@@ -325,6 +371,14 @@
 <body>
 
 <section class="hero">
+  <svg class="hero-leaf hero-leaf-1" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 6c30 26 30 76 0 106C20 82 20 32 50 6z" fill="var(--dancheong-red)"/>
+    <path d="M50 20v78M25 55c10 8 15 8 25 8s15 0 25-8" stroke="var(--paper)" stroke-width="1.5" opacity="0.4"/>
+  </svg>
+  <svg class="hero-leaf hero-leaf-2" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 6c30 26 30 76 0 106C20 82 20 32 50 6z" fill="var(--ochre)"/>
+    <path d="M50 20v78M25 55c10 8 15 8 25 8s15 0 25-8" stroke="var(--paper)" stroke-width="1.5" opacity="0.4"/>
+  </svg>
   <div class="hero-eyebrow">Busan · Seoul · Nami</div>
   <h1>8 Hari<br><span>Menyusuri</span> Korea</h1>
   <p class="hero-sub">20–27 September 2026 · Berempat, mulai dari pantai &amp; kuil Busan sampai Seoul saat Chuseok.</p>
@@ -342,11 +396,11 @@
     <div class="summary-cell"><span class="n">01</span><span class="loc">Min, 20 Sep</span><div class="focus">Tiba Incheon → Busan</div></div>
     <div class="summary-cell"><span class="n">02</span><span class="loc">Sen, 21 Sep</span><div class="focus">Haedong Yonggungsa · Haeundae · Millak</div></div>
     <div class="summary-cell"><span class="n">03</span><span class="loc">Sel, 22 Sep</span><div class="focus">Gamcheon · Jagalchi · BIFF · Busan Tower</div></div>
-    <div class="summary-cell"><span class="n">04</span><span class="loc">Rab, 23 Sep</span><div class="focus">Busan → Seoul (KTX)</div></div>
-    <div class="summary-cell"><span class="n">05</span><span class="loc">Kam, 24 Sep 🎊</span><div class="focus">Gyeongbokgung · Hanbok</div></div>
-    <div class="summary-cell"><span class="n">06</span><span class="loc">Jum, 25 Sep 🎊</span><div class="focus">COEX · Bongeunsa · Seongsu</div></div>
-    <div class="summary-cell"><span class="n">07</span><span class="loc">Sab, 26 Sep 🎊</span><div class="focus">Nami Island</div></div>
-    <div class="summary-cell"><span class="n">08</span><span class="loc">Min, 27 Sep</span><div class="focus">Belanja · Kepulangan</div></div>
+    <div class="summary-cell"><span class="n">04</span><span class="loc">Rab, 23 Sep</span><div class="focus">Deoksugung · Cheonggyecheon · Insadong</div></div>
+    <div class="summary-cell"><span class="n">05</span><span class="loc">Kam, 24 Sep 🎊</span><div class="focus">Gyeongbokgung · Hanbok · Bukchon</div></div>
+    <div class="summary-cell"><span class="n">06</span><span class="loc">Jum, 25 Sep 🎊</span><div class="focus">COEX · Kafe · Han River · Namsan</div></div>
+    <div class="summary-cell"><span class="n">07</span><span class="loc">Sab, 26 Sep 🎊</span><div class="focus">Nami Island · Garden of Morning Calm</div></div>
+    <div class="summary-cell"><span class="n">08</span><span class="loc">Min, 27 Sep</span><div class="focus">Pulang</div></div>
   </div>
   <p style="margin-top:1.5rem; font-size:0.85rem; color:#6b7268;">🎊 = periode <strong>Chuseok</strong> (24–26 September) — toko kecil &amp; pasar tradisional banyak yang tutup, transportasi antar kota padat.</p>
 </section>
@@ -357,6 +411,9 @@
     <div class="day-num">01</div>
     <div class="day-marker"></div>
     <div class="day-loc">Minggu, 20 September · Incheon → Busan</div>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 22L6 12v6l13 4-13 4v6l34-10z" fill="var(--dancheong-red)"/>
+    </svg>
     <h2>Kedatangan &amp; Perjalanan ke Busan</h2>
     <ul>
       <li><strong>08.30–10.15</strong> Imigrasi + ambil bagasi.</li>
@@ -366,7 +423,7 @@
       <li><strong>16.00–16.30</strong> Pindah ke peron KTX.</li>
       <li><strong>16.30–19.00</strong> KTX (kereta ke Busan).</li>
       <li><strong>19.00–20.00</strong> Check-in hotel.</li>
-      <li><strong>20.00–22.00</strong> Dinner — <strong>Dwaegi Gukbap</strong>.</li>
+      <li><strong>20.00–22.00</strong> Dinner.<span class="note">Haeundae Obok Dwaeji-gukbap (Cabang Gwangan).</span></li>
       <li><strong>22.00</strong> Kembali ke hotel, istirahat.</li>
     </ul>
   </div>
@@ -375,19 +432,25 @@
     <div class="day-num">02</div>
     <div class="day-marker"></div>
     <div class="day-loc">Senin, 21 September · Busan</div>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 30c3-2 6-2 9 0s6 2 9 0 6-2 9 0" stroke="var(--celadon)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M8 24c3-2 6-2 9 0s6 2 9 0 6-2 9 0" stroke="var(--celadon)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <path d="M22 6l6 9H16z" fill="var(--dancheong-red)"/>
+      <rect x="19" y="15" width="6" height="4" fill="var(--ochre)"/>
+    </svg>
     <h2>Kuil Tepi Laut &amp; Pantai</h2>
     <ul>
-      <li><strong>08.30–09.00</strong> Otw ke <strong>Haedong Yonggungsa Temple</strong> (naik taksi/Venti?).</li>
+      <li><strong>08.30–09.00</strong> Otw ke Haedong Yonggungsa Temple.<span class="note">Naik taksi/Venti?</span></li>
       <li><strong>09.00–11.00</strong> Explore Haedong Yonggungsa Temple.</li>
       <li><strong>11.00–11.30</strong> Otw ke Cheongsapo Port.</li>
-      <li><strong>11.30–13.00</strong> Lunch — kerang bakar (terkenal di sini).</li>
+      <li><strong>11.30–13.00</strong> Lunch.<span class="note">Terkenal kerang bakar.</span></li>
       <li><strong>13.00–14.00</strong> Explore Cheongsapo Port.</li>
-      <li><strong>14.00–15.00</strong> Otw ke Haeundae Beach — naik <strong>Haeundae Blueline Park (Beach Train)</strong> dari Stasiun Cheongsapo ke Stasiun Mipo (Haeundae).</li>
+      <li><strong>14.00–15.00</strong> Otw ke Haeundae Beach.<span class="note">Naik Haeundae Blueline Park (Beach Train) dari Stasiun Cheongsapo ke Stasiun Mipo (Haeundae).</span></li>
       <li><strong>15.00–16.00</strong> Explore Haeundae Beach.</li>
-      <li><strong>16.00–16.30</strong> Otw ke Millak Market (taksi atau subway, kalau nggak capek).</li>
+      <li><strong>16.00–16.30</strong> Otw ke Millak Market.<span class="note">Taksi atau subway, kalau nggak capek.</span></li>
       <li><strong>16.30–17.30</strong> Explore Millak Market.</li>
       <li><strong>17.30–18.00</strong> Jalan kaki ke Hanwolgwan.</li>
-      <li><strong>18.00–19.00</strong> Dinner di <strong>Hanwolgwan</strong> — 1 porsi medium Suyuk, 1 Malgeun Gomtang (sup bening, cocok untuk lansia/rasa original), 1 Poyan Gomtang (sup kuah putih kental sumsum, gurih), 1 Malgeun Chadoltang (sup bening dengan shortplate sedikit berlemak).</li>
+      <li><strong>18.00–19.00</strong> Dinner di Hanwolgwan.<span class="note">1 porsi medium Suyuk, 1 Malgeun Gomtang (sup bening, cocok untuk lansia/rasa original), 1 Poyan Gomtang (sup kuah putih kental sumsum, gurih), 1 Malgeun Chadoltang (sup bening dengan shortplate sedikit berlemak).</span></li>
       <li><strong>19.00</strong> Kembali ke hotel, istirahat.</li>
     </ul>
   </div>
@@ -396,6 +459,14 @@
     <div class="day-num">03</div>
     <div class="day-marker"></div>
     <div class="day-loc">Selasa, 22 September · Busan</div>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="22" width="9" height="12" fill="var(--ochre)"/>
+      <path d="M4 22l6.5-6 6.5 6z" fill="var(--ochre)"/>
+      <rect x="18" y="17" width="9" height="17" fill="var(--dancheong-red)"/>
+      <path d="M16 17l6.5-7 6.5 7z" fill="var(--dancheong-red)"/>
+      <rect x="30" y="24" width="9" height="10" fill="var(--celadon)"/>
+      <path d="M28 24l6.5-6 6.5 6z" fill="var(--celadon)"/>
+    </svg>
     <h2>Gamcheon, Jagalchi &amp; BIFF Square</h2>
     <ul>
       <li><strong>08.30–09.00</strong> Otw ke Gamcheon Culture Village.</li>
@@ -403,10 +474,10 @@
       <li><strong>11.00–11.30</strong> Otw ke Jagalchi Market.</li>
       <li><strong>11.30–12.00</strong> Explore Jagalchi Market.</li>
       <li><strong>12.00–13.30</strong> Lunch.</li>
-      <li><strong>13.30–15.00</strong> Explore BIFF Square — coba <strong>Ssiat Hotteok</strong> (씨앗호떡).</li>
+      <li><strong>13.30–15.00</strong> Explore BIFF Square.<span class="note">Coba Ssiat Hotteok (씨앗호떡).</span></li>
       <li><strong>15.00–15.30</strong> Otw ke Daegaksa Temple.</li>
       <li><strong>15.30–16.00</strong> Explore Daegaksa Temple.</li>
-      <li><strong>16.00–18.00</strong> Busan Tower (Yongdusan Park) — sekalian ngopi di kafe sekitar situ?</li>
+      <li><strong>16.00–18.00</strong> Busan Tower (Yongdusan Park).<span class="note">Sekalian ngopi di kafe sekitar situ?</span></li>
       <li><strong>18.00</strong> Kembali ke hotel — istirahat, packing.</li>
     </ul>
   </div>
@@ -415,12 +486,25 @@
     <div class="day-num">04</div>
     <div class="day-marker"></div>
     <div class="day-loc">Rabu, 23 September · Busan → Seoul</div>
-    <h2>Kembali ke Utara</h2>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 20l16-11 16 11" stroke="var(--celadon-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="10" y="20" width="24" height="14" fill="none" stroke="var(--celadon-deep)" stroke-width="2"/>
+      <rect x="14" y="24" width="4" height="10" fill="var(--dancheong-red)"/>
+      <rect x="26" y="24" width="4" height="10" fill="var(--dancheong-red)"/>
+      <rect x="20" y="24" width="4" height="6" fill="var(--ochre)"/>
+    </svg>
+    <h2>Deoksugung &amp; Insadong</h2>
     <ul>
-      <li>Naik <strong>KTX</strong> dari Busan Station ke Seoul (± 2.5-3 jam).</li>
-      <li>⚠️ Hari ini H-1 sebelum Chuseok — tiket KTX <strong>cepat penuh</strong>, booking jauh-jauh hari.</li>
-      <li>Check-in hotel di Seoul.</li>
-      <li>Malam santai, jalan-jalan ringan di sekitar penginapan.</li>
+      <li><strong>08.30–09.00</strong> Otw ke Busan Station.</li>
+      <li><strong>09.00–12.00</strong> Kereta ke Seoul.</li>
+      <li><strong>12.00–13.30</strong> Check-in hotel.</li>
+      <li><strong>13.30–15.00</strong> Lunch.</li>
+      <li><strong>15.00–16.30</strong> Deoksugung Palace.<span class="note">15.30 pergantian penjaga, Seokjojeon (gedung bergaya Barat), Doldam-gil (jalan dinding batu yang viral). Naik Subway Line 1/2, turun Stasiun City Hall, keluar Exit 1/2/12 (jalan kaki ± 2 menit). Tiket ± ₩1.000, lansia 65+ biasanya gratis dengan paspor.</span></li>
+      <li><strong>16.30–17.30</strong> Cheonggyecheon.</li>
+      <li><strong>17.30–18.00</strong> Otw ke Insadong.</li>
+      <li><strong>18.00–19.00</strong> Dinner.<span class="note">Pilihan: Doma Insadong (도마 인사점), Gaeseong Mandu Koong (개성만두 궁), atau Insadong Geujip (인사동그집).</span></li>
+      <li><strong>19.00–21.00</strong> Explore Insadong.</li>
+      <li><strong>21.00</strong> Kembali ke hotel, istirahat.</li>
     </ul>
   </div>
 
@@ -428,13 +512,18 @@
     <div class="day-num">05</div>
     <div class="day-marker"></div>
     <div class="day-loc">Kamis, 24 September 🎊 Chuseok mulai</div>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 6c8 4 14 4 14 4v10c0 8-6 14-14 18-8-4-14-10-14-18V10s6 0 14-4z" stroke="var(--dancheong-red)" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M22 12v20M15 18c3 3 4 3 7 3s4 0 7-3" stroke="var(--ochre)" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
     <h2>Istana &amp; Hanok</h2>
     <ul>
-      <li>Pagi di <strong>Gyeongbokgung Palace</strong> — sewa hanbok untuk masuk gratis, tonton pergantian penjaga.</li>
-      <li>💡 Palace biasanya tetap buka &amp; sering ada acara budaya khusus/gratis pas Chuseok — worth it datang hari ini.</li>
-      <li><strong>Bukchon Hanok Village</strong> — susuri gang rumah tradisional Korea, masih pakai hanbok.</li>
-      <li><strong>Insadong</strong> — oleh-oleh, teh tradisional, galeri seni.</li>
-      <li>⚠️ Untuk makan malam, cek dulu — banyak restoran kecil &amp; pasar tradisional (termasuk Gwangjang Market) yang tutup pas Chuseok.</li>
+      <li><strong>08.30–09.00</strong> Otw ke Gyeongbokgung Palace.</li>
+      <li><strong>09.00–11.30</strong> Sewa hanbok + explore Gyeongbokgung Palace.<span class="note">10.00 pergantian penjaga.</span></li>
+      <li><strong>11.30–13.00</strong> Lunch.</li>
+      <li><strong>13.00–15.00</strong> Bukchon Hanok Village.</li>
+      <li>Sore/malam bebas di Myeongdong.</li>
+      <li>💡 Palace biasanya tetap buka &amp; sering ada acara budaya khusus pas Chuseok — worth it datang hari ini.</li>
     </ul>
   </div>
 
@@ -442,12 +531,21 @@
     <div class="day-num">06</div>
     <div class="day-marker"></div>
     <div class="day-loc">Jumat, 25 September 🎊 Chuseok</div>
-    <h2>Gangnam &amp; Seongsu-dong</h2>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 18h20v10a10 10 0 01-20 0z" stroke="var(--celadon-deep)" stroke-width="2"/>
+      <path d="M32 20h3a4 4 0 010 8h-3" stroke="var(--celadon-deep)" stroke-width="2"/>
+      <path d="M17 14c1-2-1-3 0-5M22 14c1-2-1-3 0-5M27 14c1-2-1-3 0-5" stroke="var(--ochre)" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <h2>COEX, Kafe &amp; Namsan</h2>
     <ul>
-      <li>Pagi/siang di <strong>Starfield Library</strong> &amp; <strong>COEX Mall</strong> — spot foto perpustakaan raksasa.</li>
-      <li><strong>Bongeunsa Temple</strong> — kuil tradisional persis di sebelah gedung-gedung modern COEX.</li>
-      <li>Lanjut naik Subway Line 2 ke <strong>Seongsu-dong</strong>: mampir <strong>Haru &amp; Oneday</strong> (kafe Donghae Super Junior) dan <strong>Mouse Rabbit Coffee</strong> (kafe Yesung, dekat Konkuk University) — keduanya buka setiap hari termasuk Chuseok.</li>
-      <li>Malam bebas jajan/jalan-jalan di Seongsu-dong, area kafe &amp; galeri yang lagi hits.</li>
+      <li><strong>10.00–10.30</strong> Otw ke Starfield COEX Mall.</li>
+      <li><strong>10.30–13.00</strong> Explore + lunch di COEX.</li>
+      <li><strong>13.00–14.00</strong> Haru Coffee House.</li>
+      <li><strong>14.00–14.30</strong> Mouse Rabbit Coffee.<span class="note">Keduanya buka setiap hari termasuk Chuseok — tapi cek jarak tempuh antar keduanya, kalau naik Subway Line 2 biasanya perlu lebih dari 30 menit.</span></li>
+      <li><strong>14.30–16.00</strong> Han River.</li>
+      <li><strong>16.00–17.30</strong> Namsan Tower.</li>
+      <li><strong>17.30–20.00</strong> Myeongdong.</li>
+      <li><strong>20.00</strong> Kembali ke hotel, istirahat.</li>
     </ul>
   </div>
 
@@ -455,13 +553,27 @@
     <div class="day-num">07</div>
     <div class="day-marker"></div>
     <div class="day-loc">Sabtu, 26 September 🎊 Chuseok terakhir</div>
-    <h2>Day Trip Nami Island</h2>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="22" cy="32" rx="16" ry="4" fill="var(--celadon)" opacity="0.35"/>
+      <path d="M22 30V14" stroke="var(--celadon-deep)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="22" cy="12" r="8" fill="var(--celadon)"/>
+      <circle cx="15" cy="18" r="5" fill="var(--celadon-deep)" opacity="0.7"/>
+      <circle cx="29" cy="18" r="5" fill="var(--celadon-deep)" opacity="0.7"/>
+    </svg>
+    <h2>Nami Island &amp; Garden of Morning Calm</h2>
     <ul>
-      <li><strong>Nami Island</strong> — pulau ikon drama "Winter Sonata", jalur pohon ginkgo/metasequoia.</li>
-      <li>⚠️ Ini hari terakhir libur Chuseok (Sabtu) — kemungkinan lebih ramai turis lokal, berangkat sepagi mungkin.</li>
-      <li><strong>Petite France</strong> atau <strong>Garden of Morning Calm</strong> (tergantung musim).</li>
-      <li><strong>Gangchon Rail Bike</strong> — opsional, pengalaman unik menyusuri rel.</li>
-      <li>Kembali ke Seoul malam hari. Kalau ternyata terlalu ramai, alternatifnya explore Seoul santai saja (Hongdae/Itaewon).</li>
+      <li>🚩 Booking shuttle bus tour dari jauh hari — sudah handle semua transfer antar lokasi.</li>
+      <li><strong>08.00</strong> Sarapan, mulai pagi.</li>
+      <li><strong>08.30</strong> Shuttle bus jemput di Seoul.<span class="note">Biasanya dari Myeongdong/Hongdae — konfirmasi titik jemput saat booking.</span></li>
+      <li><strong>10.00</strong> Tiba di Gapyeong, transfer ke dermaga feri Nami Island.</li>
+      <li><strong>10.30</strong> Feri ke Nami Island.<span class="note">± 5 menit, biasanya sudah termasuk paket tur.</span></li>
+      <li><strong>10.45–13.00</strong> Explore Nami Island.<span class="note">Jalur pohon, jalan tepi sungai, jalan datar &amp; santai.</span></li>
+      <li><strong>13.15</strong> Lunch — Alisu Dakgalbi dekat dermaga feri.<span class="note">Ayam tumis pedas dengan tteok &amp; sayuran, hidangan khas Gapyeong; gedung biru dengan dua patung simpanse besar di depan.</span></li>
+      <li><strong>14.30</strong> Shuttle ke Garden of Morning Calm.</li>
+      <li><strong>15.00–17.00</strong> Garden of Morning Calm.<span class="note">Taman lanskap dengan bunga musiman, jalur datar, santai.</span></li>
+      <li><strong>17.30</strong> Shuttle bus kembali ke Seoul.</li>
+      <li><strong>19.00</strong> Dinner di Seoul.</li>
+      <li><strong>20.30</strong> Packing.<span class="note">Beresin bagasi malam ini, jangan besok pagi.</span></li>
     </ul>
   </div>
 
@@ -469,11 +581,12 @@
     <div class="day-num">08</div>
     <div class="day-marker"></div>
     <div class="day-loc">Minggu, 27 September</div>
-    <h2>Belanja Terakhir &amp; Pulang</h2>
+    <svg class="day-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 22l34 10v-6l-13-4 13-4v-6L4 22z" fill="var(--celadon-deep)"/>
+    </svg>
+    <h2>Pulang</h2>
     <ul>
-      <li>Pagi belanja terakhir di <strong>DDP</strong> atau Myeongdong untuk oleh-oleh.</li>
-      <li>Menuju <strong>Incheon Airport</strong> via AREX — siapkan 1-2 jam sebelum check-in.</li>
-      <li>Terbang pulang. ✈️</li>
+      <li>Menuju Incheon Airport, terbang pulang. ✈️</li>
     </ul>
   </div>
 
